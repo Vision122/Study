@@ -1,0 +1,33 @@
+using System.IO;
+using System.Xml;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement; 
+
+public class PlayerCreater : MonoBehaviour
+{
+    public float speed;
+    Rigidbody body;
+    // Start is called before the first frame update
+    void Start()
+    {
+        body = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Horizontal:s水平
+        //Vertical：垂直
+        float hor = Input.GetAxis("Horizontal"); //区间在-1到1[-1,1]
+        float ver = Input.GetAxis("Vertical");
+        //刚体线速度设置
+        //空出线速度的y坐标
+        //hor决定玩家x轴的移动，ver决定玩家z轴向的移动
+        body.velocity = new Vector3(hor * speed ,0, ver * speed);
+
+    }
+}

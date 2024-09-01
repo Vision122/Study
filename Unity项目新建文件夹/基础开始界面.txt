@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Starts : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnGUI()
+    {
+        GUIStyle style = new GUIStyle();
+        style.normal.textColor = Color.black;
+        style.fontSize = 120;
+        style.fontStyle = FontStyle.Bold;
+        style.alignment = TextAnchor.MiddleCenter;
+        GUI.Label(new Rect(Screen.width/2-175,Screen.height/4,350,200),"跳跃球",style);
+
+        if (GUI.Button(new Rect(Screen.width / 2-200 , Screen.height / 2, 200, 100), "开始"))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
+        if (GUI.Button(new Rect(Screen.width / 2+50, Screen.height / 2, 200, 100), "退出"))
+        {
+            Application.Quit();
+        }
+
+    }
+}
